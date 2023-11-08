@@ -7,21 +7,21 @@
         {
           "background": "#2e9599",
           "foreground": "#ffffff",
-          "leading_diamond": "",
-          "powerline_symbol": "",
+          "leading_diamond": "\ue0b6",
+          "powerline_symbol": "\ue0b0",
           "style": "diamond",
-          "template": " {{ .HostName }} ",
+          "template": "\uf108 {{ .HostName }} ",
           "type": "session"
         },
         {
           "background": "#0080ff",
           "foreground": "#ffffff",
-          "powerline_symbol": "",
+          "powerline_symbol": "\ue0b0",
           "properties": {
             "style": "full"
           },
           "style": "powerline",
-          "template": "  {{ .Path }} ",
+          "template": " {{ .Path }} ",
           "type": "path"
         },
         {
@@ -33,7 +33,7 @@
             "{{ if gt .Behind 0 }}#90F090{{ end }}"
           ],
           "foreground": "#000000",
-          "powerline_symbol": "",
+          "powerline_symbol": "\ue0b0",
           "properties": {
             "fetch_stash_count": true,
             "fetch_status": true,
@@ -41,7 +41,7 @@
             "fetch_worktree_count": true
           },
           "style": "powerline",
-          "template": " {{ .UpstreamIcon }}{{ .HEAD }}{{if .BranchStatus }} {{ .BranchStatus }}{{ end }}{{ if .Working.Changed }}  {{ .Working.String }}{{ end }}{{ if and (.Working.Changed) (.Staging.Changed) }} |{{ end }}{{ if .Staging.Changed }}  {{ .Staging.String }}{{ end }}{{ if gt .StashCount 0 }}  {{ .StashCount }}{{ end }} ",
+          "template": " {{ .UpstreamIcon }}{{ .HEAD }}{{if .BranchStatus }} {{ .BranchStatus }}{{ end }}{{ if .Working.Changed }} \uf044 {{ .Working.String }}{{ end }}{{ if and (.Working.Changed) (.Staging.Changed) }} |{{ end }}{{ if .Staging.Changed }} \uf046 {{ .Staging.String }}{{ end }}{{ if gt .StashCount 0 }} \ueb4b {{ .StashCount }}{{ end }} ",
           "type": "git"
         },
         {
@@ -55,7 +55,7 @@
           },
           "style": "diamond",
           "template": "  ",
-          "trailing_diamond": "",
+          "trailing_diamond": "\ue0b4",
           "type": "status"
         }
       ],
@@ -65,18 +65,44 @@
       "alignment": "right",
       "segments": [
         {
-          "background": "#303030",
-          "foreground": "#3C873A",
-          "leading_diamond": " \ue0b6",
-          "properties": {
-            "fetch_package_manager": true,
-            "npm_icon": " <#cc3a3a>\ue5fa</> ",
-            "yarn_icon": " <#348cba>\ue6a7</>"
-          },
-          "style": "diamond",
-          "template": "\ue718 {{ if .PackageManagerIcon }}{{ .PackageManagerIcon }} {{ end }}{{ .Full }}",
-          "trailing_diamond": "\ue0b4",
-          "type": "node"
+          "type": "text",
+          "style": "plain",
+          "template": "\ue0b6",
+          "foreground": "#000000"
+        },
+        {
+          "type": "dotnet",
+          "style": "plain",
+          "foreground": "#000000",
+          "background": "#00ffff",
+          "template": " \uE77F {{ .Full }} "
+        },
+        {
+          "type": "angular",
+          "style": "plain",
+          "foreground": "#ffffff",
+          "background": "#000000",
+          "template": " \uE753 {{ if .Error }}<#FE4A49>?</>{{ else }}{{ .Full }}{{ end }} "
+        },
+        {
+          "type": "node",
+          "style": "plain",
+          "foreground": "#45bf17",
+          "background": "#000000",
+          "template": " \ue718 {{ .Full }} "
+        },
+        {
+          "type": "npm",
+          "style": "plain",
+          "foreground": "#FE4A49",
+          "background": "#000000",
+          "template": " \ue71e {{ .Full }} "
+        },
+        {
+          "type": "text",
+          "style": "plain",
+          "template": "\ue0b4",
+          "foreground": "#000000"
         }
       ],
       "type": "prompt"
@@ -86,21 +112,9 @@
       "newline": true,
       "segments": [
         {
-          "foreground": "#ff0000",
-          "style": "plain",
-          "template": " ",
-          "type": "root"
-        },
-        {
           "foreground": "#ffffff",
           "style": "plain",
-          "template": " {{ .Name }} ",
-          "type": "shell"
-        },
-        {
-          "foreground": "#ffffff",
-          "style": "plain",
-          "template": " ",
+          "template": "\uf054 ",
           "type": "text"
         }
       ],
